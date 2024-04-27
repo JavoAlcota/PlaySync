@@ -79,8 +79,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/divider"
-        app:layout_constraintVertical_bias="0.2"
-        android:background="">
+        app:layout_constraintVertical_bias="0.2">
         <LinearLayout
             android:id="@+id/playlist"
             android:layout_width="match_parent"
@@ -110,8 +109,47 @@
 
         </LinearLayout>
 
+
+
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/bottom_ind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1"
+        android:layout_marginTop="10dp"
+        android:background="#F0F0F0">
+
+        <ImageView
+            android:layout_weight="1"
+            android:layout_height="61dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/sf_logo"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"/>
+
+        <ImageView
+            android:layout_weight="1"
+            android:layout_height="61dp"
+            app:srcCompat="@drawable/yt_logo_rd_off"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            />
+
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

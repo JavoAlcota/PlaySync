@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.SpotifyPlaylistsActivity">
+    tools:context=".views.YoutubeSongsActivity">
 
     <ImageView
         android:layout_width="60dp"
@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="38sp"
-            android:text="YouTube's"
+            android:text="Playlist name's"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -44,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="38sp"
-            android:text="playlists"
+            android:text="songs"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -70,7 +70,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Playlist name"
+            android:text="Song name"
             android:textSize="24dp"
             android:textAlignment="center"
             />
@@ -118,7 +118,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Playlist 1"
+                android:text="Song 1"
                 android:textSize="24dp"
                 android:textAlignment="center"
                 android:textColor="#000"
@@ -150,7 +150,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Playlist 2"
+                android:text="Song 2"
                 android:textSize="24dp"
                 android:textAlignment="center"
                 android:textColor="#000"
@@ -181,7 +181,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Playlist 3"
+                android:text="Song 3"
                 android:textSize="24dp"
                 android:textAlignment="center"
                 android:textColor="#000"
@@ -226,7 +226,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/sf_logo_off"
             android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            />
 
         <ImageView
             android:layout_weight="1"
@@ -242,6 +243,5 @@
             />
 
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

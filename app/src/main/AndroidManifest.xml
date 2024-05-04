@@ -13,6 +13,12 @@
         android:theme="@style/Theme.PlaySync"
         tools:targetApi="31">
         <activity
+            android:name=".views.SpotifySongsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.YoutubeSongsActivity"
+            android:exported="false" />
+        <activity
             android:name=".views.YoutubePlaylistsActivity"
             android:exported="false" />
         <activity

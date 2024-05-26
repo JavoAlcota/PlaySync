@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "719865028125",
+    "project_id": "youtube-api-418420",
+    "storage_bucket": "youtube-api-418420.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:719865028125:android:c4edfd56faf3d7ed48f0f4",
+        "android_client_info": {
+          "package_name": "com.udaproject.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "719865028125-teieu2i6a37kpe0bk4b4tkgstnc7kjrg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.udaproject.myapplication",
+            "certificate_hash": "f8b3aaf63d00d68cc42fd2c4ff1beda49fd15fcb"
+          }
+        },
+        {
+          "client_id": "719865028125-auevk5tnh7rcftgkshjpl46rrrobmmjl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTqEXpTph3P5xkExZJZgnOXYv0tJS7NeM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "719865028125-auevk5tnh7rcftgkshjpl46rrrobmmjl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

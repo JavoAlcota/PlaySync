@@ -18,6 +18,7 @@
         app:layout_constraintVertical_bias="0.08"
         />
 
+
     <TextView
         android:id="@+id/text1"
         android:layout_width="300dp"
@@ -64,7 +65,7 @@
 
 
     <Button
-        android:id="@+id/ytBtm"
+        android:id="@+id/sfLoginBtn"
         android:layout_width="300dp"
         android:layout_height="48dp"
         app:layout_constraintTop_toBottomOf="@+id/text3"
@@ -75,7 +76,20 @@
         android:background="@drawable/sf_btn"
         android:text="Sign in"
         android:textColor="@color/white"
-        android:textSize="17sp"
+        android:textSize="17sp"/>
 
-        />
+    <TextView
+        android:id="@+id/googleEmail"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintTop_toTopOf="@+id/sfLoginBtn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

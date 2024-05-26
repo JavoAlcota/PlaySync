@@ -12,4 +12,6 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="prefs_file">com.udaproject.myaplication.PREFERENCE_FILE_KEY</string>
+    <string name="default_web_client_id">719865028125-auevk5tnh7rcftgkshjpl46rrrobmmjl.apps.googleusercontent.com</string>
 </resources>

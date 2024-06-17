@@ -24,20 +24,22 @@ class SpotifyLoginActivity : AppCompatActivity() {
             insets
         }
 
-        val googleEmail = intent.extras?.getString("GOOGLE_EMAIL").orEmpty()
-        val text1 = findViewById<TextView>(R.id.googleEmail)
-        text1.text = "Google account used: \n${YoutubeUserData.userEmail}"
-
 
         val spotifyLoginBtn = findViewById<Button>(R.id.sfLoginBtn)
         spotifyLoginBtn.setOnClickListener {
             val builder = AuthorizationRequest.Builder(
                 SpotifyConstants.CLIENTE_ID,
                 AuthorizationResponse.Type.TOKEN,
-                SpotifyConstants.REDIRECT_URI
+                SpotifyConstants.REDIRECT_URI,
             )
 
-            builder.setScopes(arrayOf("streaming"))
+            builder.setScopes(arrayOf("playlist-read-private",
+                "user-read-email",
+                "playlist-modify-public",
+                "playlist-modify-private",
+                ))
+
+
             val request = builder.build()
 
             AuthorizationClient.openLoginActivity(this, SpotifyConstants.REQUEST_CODE, request)
@@ -53,7 +55,7 @@ class SpotifyLoginActivity : AppCompatActivity() {
                 AuthorizationResponse.Type.TOKEN -> {
                     SpotifyUserData.userToken = response.accessToken
 
-                    Toast.makeText(this,":D ${SpotifyUserData.userToken}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this,"Authentication Ok!", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, UserDataActivity::class.java)
                     startActivity(intent)
 

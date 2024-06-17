@@ -36,7 +36,12 @@ android {
         jvmTarget = "1.8"
     }
     buildFeatures {
-        viewBinding = true
+        viewBinding = false
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.2"
     }
 }
 
@@ -61,10 +66,16 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics")
     implementation (libs.play.services.auth.v2010)
 
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.3")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.6")
     implementation("com.spotify.android:auth:1.2.5")
 
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
 
+
+    //Compose
+    implementation ("androidx.activity:activity-compose:1.9.0")
+    implementation("androidx.compose.material:material:1.6.7")
 }
 
 

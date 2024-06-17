@@ -7,6 +7,34 @@
     android:layout_height="match_parent"
     tools:context=".views.UserDataActivity">
 
+    <Button
+        android:id="@+id/continueBtn"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:background="@drawable/sf_btn"
+        android:text="continue"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.9" />
+
+    <Button
+        android:id="@+id/logOutBtn"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:background="@drawable/danger_btn"
+        android:text="logout"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.8" />
+
     <ImageView
         android:id="@+id/ytLogo"
         android:layout_width="140dp"
@@ -16,7 +44,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.08"
+        app:layout_constraintVertical_bias="0.15"
         />
     <TextView
         android:id="@+id/ytUserName"

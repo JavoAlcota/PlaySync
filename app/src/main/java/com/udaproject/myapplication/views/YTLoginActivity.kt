@@ -12,6 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.common.api.Scope
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.udaproject.myapplication.R
@@ -58,7 +59,7 @@ class YTLoginActivity : AppCompatActivity() {
                         .addOnCompleteListener(this) { task ->
                             if (task.isSuccessful) {
                                 //Inicio de sesión existoso
-                                Toast.makeText(this, ":D ${account.displayName}", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this, "Ok! Now sing in with Spotify", Toast.LENGTH_SHORT).show()
                                 val intent = Intent(this, SpotifyLoginActivity::class.java)
 
                                 //Datos del usuario asignados a la clase

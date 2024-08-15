@@ -12,6 +12,8 @@
         android:textAlignment="center"
         android:textColor="#000"
         android:textAllCaps="false"
+        android:text=""
+        android:layout_marginStart="8dp"
         android:background="@color/white" />
 
     <TextView

@@ -10,10 +10,15 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.firebase.auth.FirebaseAuth
+import com.spotify.sdk.android.auth.AuthorizationClient
 import com.udaproject.myapplication.R
-import com.udaproject.myapplication.views.spotify_api.HeaderInterceptor
 import com.udaproject.myapplication.views.spotify_api.SpotifyAPI
+import com.udaproject.myapplication.views.spotify_api.SpotifyHeaderInterceptor
 import com.udaproject.myapplication.views.spotify_api.User
+import com.udaproject.myapplication.views.youtubeAPI.YoutubeAPI
+import com.udaproject.myapplication.views.youtubeAPI.YoutubeHeaderInterceptor
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -34,19 +39,28 @@ class UserDataActivity : AppCompatActivity() {
         }
 
 
-
+        //User info
         val ytUserName = findViewById<TextView>(R.id.ytUserName)
         val ytUserEmail = findViewById<TextView>(R.id.ytUserEmail)
         val sfUserName = findViewById<TextView>(R.id.sfUserName)
         val sfUserEmail = findViewById<TextView>(R.id.sfUserEmail)
 
+        //Buttons
+        val endSessionBtn = findViewById<Button>(R.id.logOutBtn)
+        val continueBtn = findViewById<Button>(R.id.continueBtn)
+
         ytUserName.text = YoutubeUserData.userName
         ytUserEmail.text = YoutubeUserData.userEmail
 
-        val continueBtn = findViewById<Button>(R.id.continueBtn)
-        continueBtn.setOnClickListener{
-            val intent = Intent(this, SpotifyPlaylistsActivity::class.java)
+        endSessionBtn.setOnClickListener{
+            AuthorizationClient.clearCookies(this)
+            FirebaseAuth.getInstance().signOut()
+            val intent = Intent(this, YTLoginActivity::class.java)
             startActivity(intent)
+        }
+
+        continueBtn.setOnClickListener{
+            finish()
         }
 
         obtainUserData(sfUserName, sfUserEmail)
@@ -60,9 +74,23 @@ class UserDataActivity : AppCompatActivity() {
             .build()
     }
 
+    private fun getChannelDataSF():Retrofit{
+        return Retrofit.Builder()
+            .baseUrl("https://youtube.googleapis.com/youtube/v3/channels?")
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(getYoutubeClient())
+            .build()
+    }
+
+    private fun getYoutubeClient():OkHttpClient =
+        OkHttpClient.Builder()
+            .addInterceptor(YoutubeHeaderInterceptor())
+            .build()
+
+
     private fun getClient():OkHttpClient =
         OkHttpClient.Builder()
-            .addInterceptor(HeaderInterceptor())
+            .addInterceptor(SpotifyHeaderInterceptor())
             .build()
 
 
@@ -73,12 +101,8 @@ class UserDataActivity : AppCompatActivity() {
                 val userData = call.body()
                 runOnUiThread {
                     if (call.isSuccessful && userData != null) {
-                        sfUserName.text = "${userData.display_name}"
-                            if (userData.email == null){
-                                sfUserEmail.text = "You don't have an email configured."
-                            }else{
-                                sfUserEmail.text = "${userData.email}"
-                            }
+                        sfUserName.text = userData.display_name
+                        sfUserEmail.text = userData.email
                     } else {
                         val errorBody = call.errorBody()?.string()
                         Log.e("UserDataActivity", "Error in API call: $errorBody")

@@ -12,6 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.common.api.Scope
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
@@ -33,6 +34,8 @@ class YTLoginActivity : AppCompatActivity() {
         ytLoginButton.setOnClickListener{
             val googleConf = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
+                .requestScopes(Scope("https://www.googleapis.com/auth/youtube.readonly"))
+                .requestScopes(Scope("https://www.googleapis.com/auth/youtube"))
                 .requestEmail()
                 .build()
 
@@ -60,7 +63,8 @@ class YTLoginActivity : AppCompatActivity() {
                             if (task.isSuccessful) {
                                 //Inicio de sesión existoso
                                 Toast.makeText(this, "Ok! Now sing in with Spotify", Toast.LENGTH_SHORT).show()
-                                val intent = Intent(this, SpotifyLoginActivity::class.java)
+                                //val intent = Intent(this, SpotifyLoginActivity::class.java)
+                                val intent = Intent(this, SpotifyPlaylistsActivity::class.java)
 
                                 //Datos del usuario asignados a la clase
                                 YoutubeUserData.userName = account.displayName

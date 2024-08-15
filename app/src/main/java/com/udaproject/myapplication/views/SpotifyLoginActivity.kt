@@ -28,7 +28,7 @@ class SpotifyLoginActivity : AppCompatActivity() {
         val spotifyLoginBtn = findViewById<Button>(R.id.sfLoginBtn)
         spotifyLoginBtn.setOnClickListener {
             val builder = AuthorizationRequest.Builder(
-                SpotifyConstants.CLIENTE_ID,
+                SpotifyConstants.CLIENT_ID,
                 AuthorizationResponse.Type.TOKEN,
                 SpotifyConstants.REDIRECT_URI,
             )
@@ -36,8 +36,9 @@ class SpotifyLoginActivity : AppCompatActivity() {
             builder.setScopes(arrayOf("playlist-read-private",
                 "user-read-email",
                 "playlist-modify-public",
-                "playlist-modify-private",
+                "playlist-modify-private"
                 ))
+
 
 
             val request = builder.build()
@@ -56,7 +57,7 @@ class SpotifyLoginActivity : AppCompatActivity() {
                     SpotifyUserData.userToken = response.accessToken
 
                     Toast.makeText(this,"Authentication Ok!", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this, UserDataActivity::class.java)
+                    val intent = Intent(this, SpotifyPlaylistsActivity::class.java)
                     startActivity(intent)
 
                 }

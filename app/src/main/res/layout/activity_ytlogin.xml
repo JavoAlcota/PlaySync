@@ -23,7 +23,7 @@
         android:id="@+id/text1"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="Sign up"
+        android:text="Sign in"
         android:textColor="@color/black"
         android:textSize="38sp"
         app:layout_constraintBottom_toBottomOf="parent"

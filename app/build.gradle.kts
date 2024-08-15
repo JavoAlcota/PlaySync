@@ -76,6 +76,7 @@ dependencies {
     //Compose
     implementation ("androidx.activity:activity-compose:1.9.0")
     implementation("androidx.compose.material:material:1.6.7")
+
 }
 
 

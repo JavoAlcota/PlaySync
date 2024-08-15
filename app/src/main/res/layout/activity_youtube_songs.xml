@@ -7,18 +7,34 @@
     android:layout_height="match_parent"
     tools:context=".views.YoutubeSongsActivity">
 
-    <ImageView
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        app:srcCompat="@drawable/sidebar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+    <ImageButton
+        android:id="@+id/menu"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/sidebar"
+        android:scaleType="fitCenter"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintVertical_bias="0.02"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.01"
+        app:layout_constraintHorizontal_bias="0.05"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:text="Playlist name:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/title"
+        app:layout_constraintVertical_bias="1"
+        android:layout_marginStart="10dp"
+        />
 
     <LinearLayout
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/topList"
@@ -28,10 +44,11 @@
         app:layout_constraintVertical_bias="0.9"
         >
         <TextView
+            android:id="@+id/playlistName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="38sp"
-            android:text="Playlist name's"
+            android:textSize="32sp"
+            android:text="Playlist's name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -40,19 +57,7 @@
             android:textColor="#ff0000"
             android:textStyle="bold"
             />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="38sp"
-            android:text="songs"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/topList"
-            app:layout_constraintVertical_bias="0.9"
-            android:layout_marginStart="10dp"
-            android:textColor="#000"
-            />
+
     </LinearLayout>
 
     <LinearLayout
@@ -69,8 +74,8 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Song name"
+            android:layout_weight="2"
+            android:text="Track name"
             android:textSize="24dp"
             android:textAlignment="center"
             />
@@ -79,7 +84,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Synchronized"
+            android:text="Status"
             android:textSize="24dp"
             android:textAlignment="center"/>
 
@@ -97,111 +102,28 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         />
-    <LinearLayout
-        android:id="@+id/playlists"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_ind"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider"
-        app:layout_constraintVertical_bias="0.2">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.2">
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Song 1"
-                android:textSize="24dp"
-                android:textAlignment="center"
-                android:textColor="#000"
-                android:textAllCaps="false"
-                android:background="@color/white"/>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="✓"
-                android:textSize="24dp"
-                android:textAlignment="center"
-                android:textColor="#22df63"/>
-
-        </LinearLayout>
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
+            android:id="@+id/songs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/divider"
             app:layout_constraintVertical_bias="0.2">
 
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Song 2"
-                android:textSize="24dp"
-                android:textAlignment="center"
-                android:textColor="#000"
-                android:textAllCaps="false"
-                android:background="@color/white"/>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="X"
-                android:textSize="24dp"
-                android:textAlignment="center"
-                android:textColor="#F44336"/>
-
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.2">
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Song 3"
-                android:textSize="24dp"
-                android:textAlignment="center"
-                android:textColor="#000"
-                android:textAllCaps="false"
-                android:background="@color/white"/>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="X"
-                android:textSize="24dp"
-                android:textAlignment="center"
-                android:textColor="#F44336"/>
-
-        </LinearLayout>
-
-
-
-    </LinearLayout>
+    </ScrollView>
 
     <LinearLayout
         android:id="@+id/bottom_ind"
@@ -216,32 +138,43 @@
         android:layout_marginTop="10dp"
         android:background="#F0F0F0">
 
-        <ImageView
-            android:layout_weight="1"
-            android:layout_height="61dp"
+        <LinearLayout
             android:layout_width="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/sf_logo_off"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
-            />
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
 
-        <ImageView
-            android:layout_weight="1"
-            android:layout_height="61dp"
+            <ImageButton
+                android:id="@+id/sfBtn"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/sf_logo_off"
+                android:scaleType="fitCenter" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="0dp"
-            app:srcCompat="@drawable/yt_logo_rd"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
-            />
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
+
+            <ImageButton
+                android:id="@+id/ytBtn"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/yt_logo_rd"
+                android:scaleType="fitCenter" />
+        </LinearLayout>
 
     </LinearLayout>
+
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

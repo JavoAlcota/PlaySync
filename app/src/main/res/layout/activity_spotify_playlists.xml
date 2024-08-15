@@ -7,16 +7,18 @@
     android:layout_height="match_parent"
     tools:context=".views.SpotifyPlaylistsActivity">
 
-    <ImageView
-        android:layout_width="70dp"
-        android:layout_height="40dp"
-        app:srcCompat="@drawable/sidebar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+    <ImageButton
+        android:id="@+id/menu"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/sidebar"
+        android:scaleType="fitCenter"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintVertical_bias="0.02"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.01"
+        app:layout_constraintHorizontal_bias="0.05"/>
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -143,46 +145,37 @@
         android:layout_marginTop="10dp"
         android:background="#F0F0F0">
 
-        <ImageButton
-            android:layout_weight="1"
+        <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:background="@drawable/sf_logo"
-            />
-
-<!--        <ImageView-->
-<!--            android:layout_weight="1"-->
-<!--            android:layout_height="50dp"-->
-<!--            android:layout_width="0dp"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:srcCompat="@drawable/sf_logo"-->
-<!--            android:layout_marginBottom="10dp"-->
-<!--            android:layout_marginTop="10dp"/>-->
-
-        <ImageButton
+            android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:gravity="center"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
+
+            <ImageButton
+                android:id="@+id/sfBtn"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/sf_logo"
+                android:scaleType="fitCenter" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:background="@drawable/yt_logo_rd_off"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
 
-            />
-
-
-<!--        <ImageView-->
-<!--            android:layout_weight="1"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="50dp"-->
-<!--            app:srcCompat="@drawable/yt_logo_rd_off"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            android:layout_marginBottom="10dp"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            />-->
+            <ImageButton
+                android:id="@+id/ytBtn"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/yt_logo_rd_off"
+                android:scaleType="fitCenter" />
+        </LinearLayout>
 
     </LinearLayout>
 
